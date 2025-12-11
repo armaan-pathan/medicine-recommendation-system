@@ -54,10 +54,15 @@ Live demos of prediction & chatbot interactions (screenshots below).
 ## **1. Machine Learning Flow (SVM Model)**
 
 ✔ Dataset from Kaggle with **4,920 records**, **132 symptoms**, and **41 diseases**
+
 ✔ Each disease encoded into a **binary 132-dimensional vector**
+
 ✔ Train/test split: **80:20**
+
 ✔ Best performing model: **SVM (Linear Kernel)** due to high-dimensional sparse data
+
 ✔ Evaluation metrics: accuracy, precision, recall, F1-score
+
 ✔ Final model saved as `svc.pkl`
 
 > Why SVM?
