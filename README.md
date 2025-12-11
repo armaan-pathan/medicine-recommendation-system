@@ -104,46 +104,46 @@ If similarity `≥ 0.3` → disease detected
 # **System Architecture**
 
 ```
-                         ┌────────────────────────────┐
+                         ┌───────────────────────────┐
                          │        User Interface      │
                          │  (HTML/CSS/Flask Templates)│
-                         └─────────────┬──────────────┘
+                         └─────────────┬─────────────┘
                                        │
                                        ▼
                          ┌───────────────────────────┐
-                         │     Flask Backend (UI)    │
-                         │        main.py (5000)     │
+                         │     Flask Backend (UI)     │
+                         │        main.py (5000)       │
                          └─────────────┬─────────────┘
              Disease Prediction Routes │
                                        │
                                        ▼
                          ┌───────────────────────────┐
-                         │  ML Model (SVM - svc.pkl) │
-                         │ Symptom Vector Prediction │
-                         └─────────────┬─────────────┘
-                                       │
+                         │  ML Model (SVM - svc.pkl)  │
+                         │ Symptom Vector Prediction   │
+                         └───────────────────────────┘
+
                                        │
                       Chatbot Requests │  (API Call)
                                        ▼
                          ┌───────────────────────────┐
-                         │   Flask Chatbot Server    │
-                         │      chatbot.py (5001)    │
+                         │   Flask Chatbot Server     │
+                         │      chatbot.py (5001)     │
                          └─────────────┬─────────────┘
                                        │
                                        ▼
                          ┌───────────────────────────┐
-                         │ Sentence Transformer Model│
-                         │      (MiniLM-L6-v2)       │
-                         └─────────────┬─────────────┘
+                         │ Sentence Transformer Model │
+                         │      (MiniLM-L6-v2)        │
+                         └───────────────────────────┘
                                        │
                                        ▼
                          ┌───────────────────────────┐
                          │ NLP Dataset (Custom CSVs) │
                          │ Medicines, Precautions,   │
-                         │ Descriptions Templates    │
+                         │ Descriptions Templates     │
                          └───────────────────────────┘
-```
 
+```
 ---
 
 # **Folder Structure**
