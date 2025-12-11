@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Doctor AI Logo" class="logo">
+            <h1>Doctor AI</h1>
+        </header>
+        <div class="chat-history" id="chat-history">
+            {% for msg in chat_history %}
+                <div class="message {{ 'user-message' if msg.sender == 'user' else 'bot-message' }}">
+                    <div class="message-content">
+                        <strong>{{ 'You' if msg.sender == 'user' else 'Doctor AI' }}:</strong> {{ msg.message }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <form class="input-form" method="POST" action="/">
+            <input type="text" name="user_input" placeholder="Enter symptoms (e.g., fever and cough) or response..." autocomplete="off" required>
+            <button type="submit" class="send-button">Send</button>
+        </form>
+        <form method="POST" action="/reset">
+            <button type="submit" class="reset-button">Restart Conversation</button>
+        </form>
+    </div>
+    <script>
+        // Auto-scroll to the bottom of chat history
+        const chatHistory = document.getElementById('chat-history');
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+    </script>
+</body>
+</html>
